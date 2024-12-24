@@ -1,8 +1,8 @@
 This repository demonstrates the integration and usage of FreeRTOS on the STM32 Nucleo board, leveraging the CMSIS-RTOS v2 (CMSIS-RTOS2) interface.
 
 ## About CMSIS-RTOS2 
-CMSIS-RTOS2 is a standardized RTOS interface designed for Arm® Cortex® processor-based devices. It provides a consistent API that simplifies the integration of RTOS functionality into applications, 
-offering significant benefits for developers and the software industry.
+This repository has been created to gain practical knowledge of Real-Time Operating Systems (RTOS) by implementing and understanding the components of FreeRTOS on an STM32 Nucleo Board.
+It demonstrates the integration and usage of CMSIS-RTOS v2 (CMSIS-RTOS2), which provides a standardized API for RTOS functionality on Arm® Cortex® processor-based devices.
 
 ### Key Features and Benefits
 - Basic RTOS Features: CMSIS-RTOS2 offers essential RTOS capabilities commonly needed in embedded systems.   
