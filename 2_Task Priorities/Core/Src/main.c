@@ -240,7 +240,7 @@ void StartTask1(void *argument)
     priority = osThreadGetPriority(Task2Handle);
     Task_Action('1');
     osThreadSetPriority(Task2Handle, priority + 1);
-    HAL_Delay(50);
+    HAL_Delay(5);
   }
   /* USER CODE END 5 */
 }
@@ -262,6 +262,7 @@ void StartTask2(void *argument)
     priority = osThreadGetPriority(Task2Handle);
     Task_Action('2');
     osThreadSetPriority(Task2Handle, priority - 2);
+    Task_Action('!'); // this expression will never execute
   }
   /* USER CODE END StartTask2 */
 }
