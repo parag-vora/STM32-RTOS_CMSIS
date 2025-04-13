@@ -234,10 +234,13 @@ void Task_action(char message){
 void StartTask(void *argument)
 {
   /* USER CODE BEGIN 5 */
+
   /* Infinite loop */
   for(;;)
   {
 	Task_action('1');
+	osThreadId_t ThreadID1 = osThreadGetId ();
+	osThreadState_t ThreasSTATUS1 = osThreadGetState (ThreadID1);
 	osThreadYield();
   }
   /* USER CODE END 5 */
@@ -253,10 +256,13 @@ void StartTask(void *argument)
 void StartTask2(void *argument)
 {
   /* USER CODE BEGIN StartTask2 */
+
   /* Infinite loop */
   for(;;)
   {
     Task_action('2');
+    osThreadId_t ThreadID2 = osThreadGetId ();
+    osThreadState_t ThreadSTATUS2 = osThreadGetState (ThreadID2);
 
   }
   /* USER CODE END StartTask2 */
