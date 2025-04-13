@@ -205,12 +205,23 @@ void SystemClock_Config(void)
   */
 static void MX_GPIO_Init(void)
 {
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
 /* USER CODE BEGIN MX_GPIO_Init_1 */
 /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, Red_LED_Pin|Blue_LED_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pins : Red_LED_Pin Blue_LED_Pin */
+  GPIO_InitStruct.Pin = Red_LED_Pin|Blue_LED_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
@@ -237,7 +248,8 @@ void StartTask1(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	Task_action('1');
+	//Task_action('1');
+	  HAL_GPIO_TogglePin(Blue_LED_GPIO_Port, Blue_LED_Pin);
     osDelay(1000);
   }
   /* USER CODE END 5 */
@@ -256,7 +268,8 @@ void StartTask2(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	Task_action('2');
+	//Task_action('2');
+	  HAL_GPIO_TogglePin(Red_LED_GPIO_Port, Red_LED_Pin);
     osDelay(1000);
   }
   /* USER CODE END StartTask2 */
